@@ -1,0 +1,71 @@
+/* ---------- Staff workspace theme: professional indigo SaaS, light content ---------- */
+[data-portal="staff"] {
+  --ink: #1e1b4b;
+  --paper: #f5f5fb;
+  --surface: #ffffff;
+  --surface-raised: #f4f4fc;
+  --line: #e4e3f3;
+  --line-strong: #cfcdec;
+  --text: #211f3d;
+  --muted: #6b6b8d;
+
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-soft: #eceafc;
+  --signal: #f59e0b;
+
+  --danger: #dc2626;
+  --danger-soft: #fde8e8;
+  --success: #16a34a;
+  --success-soft: #e4f6ea;
+  --warning: #b45309;
+  --warning-soft: #fdf1dc;
+  --info: #2563eb;
+  --info-soft: #e5edfd;
+  --critical: #9d174d;
+  --critical-soft: #fbe3ee;
+
+  --radius: 8px;
+  --radius-lg: 14px;
+  --shadow: 0 1px 2px rgba(30, 27, 75, 0.06);
+  --shadow-pop: 0 16px 40px rgba(30, 27, 75, 0.22);
+
+  color-scheme: light;
+
+  --portal-sidebar-bg: linear-gradient(180deg, #211d4e, #171333);
+  --portal-sidebar-text: #c6c4ea;
+  --portal-sidebar-strong: #ffffff;
+  --portal-sidebar-muted: #8d8ab8;
+  --portal-sidebar-hover: rgba(255, 255, 255, 0.07);
+  --portal-sidebar-active-bg: rgba(255, 255, 255, 0.1);
+  --portal-sidebar-active-fg: #ffffff;
+  --portal-sidebar-border: rgba(255, 255, 255, 0.08);
+  --portal-brand-mark-bg: #4f46e5;
+  --portal-brand-mark-fg: #ffffff;
+  --portal-accent: #f59e0b;
+}
+
+/* Dark mode: only applies once the site-wide dark toggle is active (see assistant.css for the
+   full explanation) — without this block, this portal stayed light no matter what the toggle did. */
+[data-portal="staff"][data-theme="dark"] {
+  --ink: #09071c;
+  --paper: #0c0b22;
+  --surface: #13112c;
+  --surface-raised: #181638;
+  --line: #262353;
+  --line-strong: #363073;
+  --text: #e4e3f7;
+  --muted: #9b99c2;
+  color-scheme: dark;
+
+  --portal-sidebar-bg: linear-gradient(180deg, #13112c, #09071c);
+  --portal-sidebar-text: #b9b7de;
+  --portal-sidebar-muted: #7f7cb0;
+  --portal-sidebar-hover: rgba(255, 255, 255, 0.06);
+  --portal-sidebar-active-bg: rgba(255, 255, 255, 0.1);
+  --portal-sidebar-border: rgba(255, 255, 255, 0.08);
+}
+
+[data-portal="staff"] .input::placeholder { color: #9897b8; }
+[data-portal="staff"] .table th { background: var(--surface-raised); }
+[data-portal="staff"] .badge-neutral { background: #ecebf7; color: #413e6b; }

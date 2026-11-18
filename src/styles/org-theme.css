@@ -1,0 +1,94 @@
+/* ---------- Organization Dashboard theme (org_admin) ----------
+   Default palette below; an org's own Branding & Settings page overrides
+   --portal-sidebar-bg / --portal-accent / --portal-brand-mark-bg etc. live
+   via inline CSS variables on .portal-shell (see OrgBrandingContext). */
+[data-portal="org"] {
+  --ink: #0f1b3d;
+  --paper: #f4f6fb;
+  --surface: #ffffff;
+  --surface-raised: #eef1fa;
+  --line: #e3e7f3;
+  --line-strong: #c7cee6;
+  --text: #16213f;
+  --muted: #5f6a8a;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #e4ecfd;
+  --signal: #d97706;
+
+  --danger: #dc2626;
+  --danger-soft: #fde8e8;
+  --success: #16a34a;
+  --success-soft: #e4f6ea;
+  --warning: #b45309;
+  --warning-soft: #fdf1dc;
+  --info: #2563eb;
+  --info-soft: #e4ecfd;
+  --critical: #9d174d;
+  --critical-soft: #fbe3ee;
+
+  --radius: 8px;
+  --radius-lg: 14px;
+  --shadow: 0 1px 2px rgba(15, 27, 61, 0.06);
+  --shadow-pop: 0 16px 40px rgba(15, 27, 61, 0.22);
+  color-scheme: light;
+
+  --portal-sidebar-bg: var(--org-sidebar-bg, linear-gradient(180deg, #10224e, #0b1838));
+  --portal-sidebar-text: #c7d0ec;
+  --portal-sidebar-strong: #ffffff;
+  --portal-sidebar-muted: #8089b3;
+  --portal-sidebar-hover: rgba(255, 255, 255, 0.07);
+  --portal-sidebar-active-bg: rgba(255, 255, 255, 0.1);
+  --portal-sidebar-active-fg: #ffffff;
+  --portal-sidebar-border: rgba(255, 255, 255, 0.08);
+  --portal-brand-mark-bg: var(--org-accent, #2563eb);
+  --portal-brand-mark-fg: #ffffff;
+  --portal-accent: var(--org-accent, #2563eb);
+}
+
+/* Dark mode: only applies once the site-wide dark toggle is active (see assistant.css for the
+   full explanation) — without this block, this portal stayed light no matter what the toggle did. */
+[data-portal="org"][data-theme="dark"] {
+  --ink: #060b1c;
+  --paper: #090e20;
+  --surface: #0f1530;
+  --surface-raised: #141a3a;
+  --line: #222a4f;
+  --line-strong: #2f3966;
+  --text: #e4e8fa;
+  --muted: #929bc4;
+  color-scheme: dark;
+
+  --portal-sidebar-bg: var(--org-sidebar-bg, linear-gradient(180deg, #10224e, #0b1838));
+  --portal-sidebar-text: #c7d0ec;
+  --portal-sidebar-muted: #8089b3;
+  --portal-sidebar-hover: rgba(255, 255, 255, 0.07);
+  --portal-sidebar-active-bg: rgba(255, 255, 255, 0.1);
+  --portal-sidebar-border: rgba(255, 255, 255, 0.08);
+}
+
+[data-portal="org"] .table th { background: var(--surface-raised); }
+[data-portal="org"] .badge-neutral { background: #e7eaf7; color: #3c4668; }
+
+/* Plan picker (Billing & Plan) */
+.plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 4px; }
+.plan-card { position: relative; padding: 16px 14px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s; }
+.plan-card:hover { border-color: var(--primary); }
+.plan-card.is-selected { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+.plan-card-term { font-size: 13px; font-weight: 700; color: var(--text); }
+.plan-card-price { display: block; margin-top: 8px; font-size: 20px; font-weight: 700; }
+.plan-card-permonth { display: block; font-size: 11px; color: var(--muted); }
+.plan-card-save { display: inline-block; margin-top: 8px; padding: 2px 8px; border-radius: 999px; background: var(--success-soft); color: var(--success); font-size: 10.5px; font-weight: 600; }
+.trial-banner { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 18px; border-radius: var(--radius-lg); background: var(--warning-soft); border: 1px solid #f3dcae; margin-bottom: 16px; }
+.trial-banner strong { color: var(--warning); }
+
+/* Branding form swatches */
+.branding-swatch-row { display: flex; align-items: center; gap: 10px; }
+.branding-swatch-row input[type="color"] { width: 44px; height: 38px; padding: 2px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); cursor: pointer; }
+.branding-preview { margin-top: 18px; padding: 16px; border-radius: var(--radius-lg); border: 1px dashed var(--line-strong); background: var(--paper); }
+.branding-preview-bar { display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 14px; border-radius: 10px; color: #fff; }
+.branding-preview-mark { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,0.18); font-weight: 700; font-size: 12px; }
+
+.mt-16 { margin-top: 16px; }
+.how-it-works { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 13px; color: var(--text); }

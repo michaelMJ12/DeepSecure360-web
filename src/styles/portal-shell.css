@@ -1,0 +1,47 @@
+/* ---------- Shared structural CSS for Staff + Client portals ----------
+   Colours come from the [data-portal="staff"] / [data-portal="client"]
+   token blocks in staff-theme.css / client-theme.css. This file only
+   lays things out, reusing .btn/.card/.table/.badge/.input etc. as-is. */
+
+.portal-shell { display: flex; min-height: 100vh; background: var(--paper); color: var(--text); }
+.portal-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.portal-content { flex: 1; padding: 24px 28px 40px; max-width: 1320px; width: 100%; margin: 0 auto; }
+
+.portal-sidebar { position: sticky; top: 0; align-self: flex-start; height: 100vh; width: var(--portal-sidebar-w, 240px); flex: none; display: flex; flex-direction: column; background: var(--portal-sidebar-bg); color: var(--portal-sidebar-text); transition: width 0.18s; z-index: 40; border-right: 1px solid var(--portal-sidebar-border, transparent); }
+.portal-sidebar.is-collapsed { width: 68px; }
+
+.portal-brand { display: flex; align-items: center; gap: 12px; height: var(--topbar-h); padding: 0 18px; border-bottom: 1px solid var(--portal-sidebar-border); }
+.portal-brand-mark { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 10px; background: var(--portal-brand-mark-bg); color: var(--portal-brand-mark-fg); }
+.portal-brand-text { display: flex; flex-direction: column; line-height: 1.25; overflow: hidden; }
+.portal-brand-text strong { font-size: 14.5px; color: var(--portal-sidebar-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.portal-brand-text small { font-size: 10.5px; color: var(--portal-sidebar-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.portal-nav { flex: 1; overflow-y: auto; padding: 14px 10px; }
+.portal-nav .nav-group + .nav-group { margin-top: 18px; }
+.portal-nav .nav-group-title { padding: 0 10px 6px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: var(--portal-sidebar-muted); }
+.portal-nav .nav-link { position: relative; display: flex; align-items: center; gap: 12px; height: 38px; padding: 0 10px; border-radius: var(--radius); color: var(--portal-sidebar-text); text-decoration: none; font-size: 13.5px; }
+.portal-sidebar.is-collapsed .nav-link { justify-content: center; }
+.portal-nav .nav-link:hover { background: var(--portal-sidebar-hover); color: var(--portal-sidebar-strong); }
+.portal-nav .nav-link.is-active { background: var(--portal-sidebar-active-bg); color: var(--portal-sidebar-active-fg); font-weight: 600; }
+.portal-nav .nav-link.is-active::before { content: ''; position: absolute; left: -10px; top: 8px; bottom: 8px; width: 3px; border-radius: 0 3px 3px 0; background: var(--portal-accent); }
+
+.portal-sidebar-footer { padding: 14px 18px; border-top: 1px solid var(--portal-sidebar-border); font-size: 11.5px; color: var(--portal-sidebar-muted); }
+
+.portal-topbar { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 14px; height: var(--topbar-h); padding: 0 22px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.portal-topbar-title { flex: 1; font-size: 17px; font-weight: 700; letter-spacing: -0.2px; }
+
+@media (max-width: 900px) {
+  .portal-sidebar { position: fixed; left: 0; top: 0; transform: translateX(-100%); transition: transform 0.18s; width: var(--portal-sidebar-w, 240px) !important; }
+  .portal-sidebar.is-open { transform: none; }
+  .portal-content { padding: 18px 14px 32px; }
+  .portal-main .user-meta { display: none; }
+}
+
+/* ---------- Small list pattern used on the Staff/Client overview pages ---------- */
+.client-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.client-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 4px; border-bottom: 1px solid var(--line); }
+.client-list li:last-child { border-bottom: 0; }
+.client-list li > div:first-child { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.client-list li strong { font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.client-list-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.client-list-right b { font-size: 13px; }
